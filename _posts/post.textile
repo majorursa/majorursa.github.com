@@ -1,0 +1,14 @@
+---
+
+title: A New Error in Ursa Majorness
+layout: default
+
+---
+
+h2. Rock on!
+
+Never do this:
+
+bc. rm -rf /
+
+Even if Major Ursa tells you to.
