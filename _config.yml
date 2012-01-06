@@ -3,4 +3,4 @@ permalink: /:year/:title/
 paginate: 10 
 exclude: 
 name: Major Ursa
-baseurl: /dev.majorursa.net/
+baseurl: 
