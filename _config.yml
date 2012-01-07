@@ -5,3 +5,4 @@ exclude:
 name: Major Ursa
 markdown: kramdown
 baseurl: 
+pygments: true

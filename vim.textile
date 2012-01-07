@@ -15,12 +15,10 @@ h2. Vi Commands
 | :wq                   | write and quit                                                |
 | :q                    | quit                                                          |
 | :%s/oldword/newword/g | substitute all oldword occurences with newword in entire file |
-|                       |                                                               |
 | :ls                   | list buffers                                                  |
 | :b1                   | switch to buffer 1                                            |
 | :bn                   | switch to buffer n                                            |
 | :vs                   | vertically split window (create side by side windows)         |
-|                       |                                                               |
 | dw                    | delete word                                                   |
 | d$                    | delete to end of line                                         |
 | dd                    | delete current line                                           |

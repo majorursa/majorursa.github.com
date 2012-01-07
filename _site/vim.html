@@ -1,9 +1,36 @@
-<hr />
-<p>title: Vim<br />
-category: Vim<br />
-layout: default<br />
-<del>-</del>&#8212;&#8212;&#8212;-</p>
-<h1>Vim</h1>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Vim - Major Ursa</title>
+
+	<link rel="stylesheet" href="/bootstrap.min.css">
+	<link rel="stylesheet" href="/css.css">
+	<link rel="stylesheet" href="/css/wombat.css">
+</head>
+<body>
+
+	
+		
+		
+
+	<header>
+  <div class=row>
+	  <div class="span7 offset3" id=header><h1><a href="/">Major Ursa</a><img src=/mu-logo.png></h1></span>
+  </div>
+	</header>
+
+	<div class="container">
+
+
+  
+    <div class="span11 content">
+		<div class="page-header">
+		 <h3 class="title">Vim</h3>
+		</div>
+		<div class="post_content">
+			
+			<h1>Vim</h1>
 <p><img src="http://majorursa.net/hide_vi.jpg" alt="" /></p>
 <h2>Vi Commands</h2>
 <table>
@@ -12,10 +39,7 @@ layout: default<br />
 		<th>command                                                    </th>
 	</tr>
 	<tr>
-		<td>                         </td>
-		<td>                                                           </td>
-		<td> <br />
-| :q!                   </td>
+		<td> :q!                   </td>
 		<td> quit without saving                                           </td>
 	</tr>
 	<tr>
@@ -29,10 +53,6 @@ layout: default<br />
 	<tr>
 		<td> :%s/oldword/newword/g </td>
 		<td> substitute all oldword occurences with newword in entire file </td>
-	</tr>
-	<tr>
-		<td>                       </td>
-		<td>                                                               </td>
 	</tr>
 	<tr>
 		<td> :ls                   </td>
@@ -49,10 +69,6 @@ layout: default<br />
 	<tr>
 		<td> :vs                   </td>
 		<td> vertically split window (create side by side windows)         </td>
-	</tr>
-	<tr>
-		<td>                       </td>
-		<td>                                                               </td>
 	</tr>
 	<tr>
 		<td> dw                    </td>
@@ -119,35 +135,42 @@ layout: default<br />
 <p>http://www.washington.edu/computing/unix/viqr.html</p>
 <p>http://www.lagmonster.org/docs/vi.html</p>
 <h2>add to .screenrc to get Color Schemes working</h2>
-<div>
-<pre><code class='Vim'>attrcolor b &amp;quot;.I&amp;quot;
-<p>termcapinfo xterm &#8216;Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm&#8217;<br />
-defbce &quot;on&quot;<br />
-term screen-256color-bce</code></pre></p>
+<div class="highlight"><pre><code class="vim">attrcolor <span class="k">b</span> <span class="s2">&quot;.I&quot;</span>
+termcapinfo xterm <span class="s1">&#39;Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm&#39;</span>
+defbce <span class="c">&quot;on&quot;</span>
+<span class="nb">term</span> screen<span class="m">-256</span>color<span class="p">-</span>bce
+</code></pre>
 </div>
 <h2>.vimrc</h2>
-<div>
-<pre><code class='Vim'>&amp;quot; Colors!!
-<p>set t_Co=256</p>
-<p>&quot; color theme<br />
-&quot; colors zenburn<br />
-colors calmar256-dark</p>
-<p>set showmode &quot;show current mode down the bottom</p>
-<p>&quot;Setting the status line&#8230;</p>
-<p>set statusline=%f       &quot;tail of the filename</p>
-<p>&quot;display a warning if the file format isn&#8217;t Unix<br />
-set statusline+=%#warningmsg#<br />
-set statusline+=%{&amp;ff!=&#8216;unix&#8217;?&#8216;[&#8217;.&amp;ff.&#8216;]&#8217;:&#8217;&#8217;}<br />
-set statusline+=%*</p>
-<p>&quot;display a warning if file encoding isn&#8217;t UTf-8<br />
-set statusline+=%#warningmsg#<br />
-set statusline+=%{(&amp;fenc<img src="&#39;utf-8&#39;&amp;amp;&amp;amp;&amp;amp;fenc" alt="" />=&#8216;&#8217;)?&#8217;[&#8216;.&amp;fenc.&#8217;]&#8216;:&#8217;&#8217;}<br />
-set statusline+=%*</p>
-<p>set statusline+=%h      &quot;help file flag<br />
-set statusline+=%y      &quot;filetype<br />
-set statusline+=%r      &quot;read only flag<br />
-set statusline+=%m      &quot;modified flag<br />
-syntax on</code></pre></p>
+<div class="highlight"><pre><code class="vim"><span class="c">&quot; Colors!!</span>
+<span class="k">set</span> <span class="nb">t_Co</span><span class="p">=</span><span class="m">256</span>
+
+<span class="c">&quot; color theme</span>
+<span class="c">&quot; colors zenburn</span>
+<span class="k">colors</span> calmar256<span class="p">-</span><span class="nb">dark</span>
+
+<span class="k">set</span> <span class="nb">showmode</span> <span class="c">&quot;show current mode down the bottom</span>
+
+<span class="c">&quot;Setting the status line...</span>
+
+<span class="k">set</span> <span class="nb">statusline</span><span class="p">=</span>%<span class="k">f</span>       <span class="c">&quot;tail of the filename</span>
+
+<span class="c">&quot;display a warning if the file format isn&#39;t Unix</span>
+<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%#warningmsg#
+<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%{&amp;<span class="nb">ff</span><span class="p">!=</span><span class="s1">&#39;unix&#39;</span>?<span class="s1">&#39;[&#39;</span>.&amp;<span class="nb">ff</span>.<span class="s1">&#39;]&#39;</span>:<span class="s1">&#39;&#39;</span>}
+<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%*
+
+<span class="c">&quot;display a warning if file encoding isn&#39;t UTf-8</span>
+<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%#warningmsg#
+<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%{<span class="p">(</span>&amp;<span class="nb">fenc</span><span class="p">!=</span><span class="s1">&#39;utf-8&#39;</span>&amp;&amp;&amp;<span class="nb">fenc</span><span class="p">!=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>?<span class="s1">&#39;[&#39;</span>.&amp;<span class="nb">fenc</span>.<span class="s1">&#39;]&#39;</span>:<span class="s1">&#39;&#39;</span>}
+<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%*
+
+<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%<span class="k">h</span>      <span class="c">&quot;help file flag</span>
+<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%<span class="k">y</span>      <span class="c">&quot;filetype</span>
+<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%<span class="k">r</span>      <span class="c">&quot;read only flag</span>
+<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%<span class="k">m</span>      <span class="c">&quot;modified flag</span>
+<span class="nb">syntax</span> <span class="k">on</span>
+</code></pre>
 </div>
 <h2>Window Commands</h2>
 <table>
@@ -193,3 +216,17 @@ syntax on</code></pre></p>
 <ul>
 	<li>yy yank entire line</li>
 </ul>
+			
+		</div>
+    </div><!--content-->
+
+	<div class="span5 sidebar">
+		<h4>Published on </h4>
+		
+	</div>
+
+	</div><!--container-->
+
+</body>
+</html>
+
