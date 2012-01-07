@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Git Log - Major Ursa</title>
+
+	<link rel="stylesheet" href="/bootstrap.min.css">
+	<link rel="stylesheet" href="/css.css">
+</head>
+<body>
+
+	
+		
+		
+
+	<header>
+  <div class=row>
+	  <div class="span7 offset3" id=header><h1><a href="/">Major Ursa</a><img src=/mu-logo.png></h1></span>
+  </div>
+	</header>
+
+	<div class="container">
+
+
+  
+    <div class="span11 content">
+		<div class="page-header">
+		 <h3 class="title">Git Log</h3>
+		</div>
+		<div class="post_content">
+			
+			<h2>Using Git Log</h2>
+<h3>git log &#8212;stat</h3>
+<p>If you&#8217;d like to see the number of changes in each file, add the &#8212;stat option.</p>
+<p><img src="https://lh6.googleusercontent.com/-jaNagkLs3rU/Tu-DuIZKN1I/AAAAAAAACaE/xdNCDuVv6Vw/s800/git-log--stat.jpg" alt="" /></p>
+<h3>git log &#8212;since=&#8220;3 weeks ago&#8221; &#8212;until=&#8220;yesterday&#8221;</h3>
+<p>Git log also provides an intuitive way to provide a date range, with &#8212;since and &#8212;until options.</p>
+<h3>git log -p</h3>
+<p>With the -p option, git log will show patches of each of the commits.</p>
+<p><img src="https://lh5.googleusercontent.com/-iULY5TLtYaw/Tu-D5rVPdGI/AAAAAAAACZw/U1Cr0Vh09Ao/s800/git-log-p.jpg" alt="" /></p>
+<h3>git log &#8212;graph</h3>
+<p>Git log with the &#8212;graph option prints a graph along the left edge to show branches of the repository.</p>
+<p><img src="https://lh4.googleusercontent.com/-y3F733L3w9w/Tu-KMcMnp7I/AAAAAAAACac/YtfG0oN5kaU/s640/git-log-stat-graph-pretty-short.jpg" title="The stars in the graph show which branch the commits are on." alt="The stars in the graph show which branch the commits are on." /></p>
+<p>The full command for the graph screenshot above is:<br />
+bc. git log &#8212;graph &#8212;stat &#8212;pretty=short</p>
+<p>The repository used in the graph example is the git repository itself.  You can clone it here:<br />
+bc. git clone git://github.com/gitster/git.git</p>
+<p>The repository used for the first two examples are from Drupal.  You can also clone drupal:<br />
+bc. git clone &#8212;branch 7.x http://git.drupal.org/project/drupal.git</p>
+			
+		</div>
+    </div><!--content-->
+
+	<div class="span5 sidebar">
+		<h4>Published on 07 January 2012</h4>
+		
+	</div>
+
+	</div><!--container-->
+
+</body>
+</html>
+
