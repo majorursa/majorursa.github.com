@@ -7,6 +7,14 @@ header h1, header h1 a{
 	text-decoration: none;
 }
 
+header a {
+  text-align: center;
+  margin: 40px 0 20px 0;
+  font-size: 40px;
+  letter-spacing: -2px;
+  color: #404040;
+  text-decoration: none;
+}
 .container{
 	margin-bottom: 60px;
 }
