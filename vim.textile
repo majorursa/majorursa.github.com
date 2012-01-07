@@ -1,8 +1,8 @@
-----------
+---
 title: Vim
 category: Vim
 layout: default
-----------
+---
 
 h1. Vim
 
