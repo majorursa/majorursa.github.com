@@ -1,0 +1,195 @@
+<hr />
+<p>title: Vim<br />
+category: Vim<br />
+layout: default<br />
+<del>-</del>&#8212;&#8212;&#8212;-</p>
+<h1>Vim</h1>
+<p><img src="http://majorursa.net/hide_vi.jpg" alt="" /></p>
+<h2>Vi Commands</h2>
+<table>
+	<tr>
+		<th>vi key combo       </th>
+		<th>command                                                    </th>
+	</tr>
+	<tr>
+		<td>                         </td>
+		<td>                                                           </td>
+		<td> <br />
+| :q!                   </td>
+		<td> quit without saving                                           </td>
+	</tr>
+	<tr>
+		<td> :wq                   </td>
+		<td> write and quit                                                </td>
+	</tr>
+	<tr>
+		<td> :q                    </td>
+		<td> quit                                                          </td>
+	</tr>
+	<tr>
+		<td> :%s/oldword/newword/g </td>
+		<td> substitute all oldword occurences with newword in entire file </td>
+	</tr>
+	<tr>
+		<td>                       </td>
+		<td>                                                               </td>
+	</tr>
+	<tr>
+		<td> :ls                   </td>
+		<td> list buffers                                                  </td>
+	</tr>
+	<tr>
+		<td> :b1                   </td>
+		<td> switch to buffer 1                                            </td>
+	</tr>
+	<tr>
+		<td> :bn                   </td>
+		<td> switch to buffer n                                            </td>
+	</tr>
+	<tr>
+		<td> :vs                   </td>
+		<td> vertically split window (create side by side windows)         </td>
+	</tr>
+	<tr>
+		<td>                       </td>
+		<td>                                                               </td>
+	</tr>
+	<tr>
+		<td> dw                    </td>
+		<td> delete word                                                   </td>
+	</tr>
+	<tr>
+		<td> d$                    </td>
+		<td> delete to end of line                                         </td>
+	</tr>
+	<tr>
+		<td> dd                    </td>
+		<td> delete current line                                           </td>
+	</tr>
+	<tr>
+		<td> .                     </td>
+		<td> repeat last change                                            </td>
+	</tr>
+	<tr>
+		<td> yy                    </td>
+		<td> copy, yank line into buffer                                   </td>
+	</tr>
+	<tr>
+		<td> p                     </td>
+		<td> paste the line in buffer after cursor position                </td>
+	</tr>
+	<tr>
+		<td> cw                    </td>
+		<td> change word                                                   </td>
+	</tr>
+	<tr>
+		<td> u                     </td>
+		<td> undo!                                                         </td>
+	</tr>
+	<tr>
+		<td> i                     </td>
+		<td> insert mode                                                   </td>
+	</tr>
+	<tr>
+		<td> <Esc>                 </td>
+		<td> escape, exit insert mode                                      </td>
+	</tr>
+	<tr>
+		<td> /VirtualHost          </td>
+		<td> search file for phrase &#8220;VirtualHost&#8221;                          </td>
+	</tr>
+	<tr>
+		<td> n                     </td>
+		<td> move to next occurence of search phrase                       </td>
+	</tr>
+	<tr>
+		<td> 100G                  </td>
+		<td> move to 100th line                                            </td>
+	</tr>
+	<tr>
+		<td> 1G                    </td>
+		<td> move to first line                                            </td>
+	</tr>
+	<tr>
+		<td> G                     </td>
+		<td> move to last line                                             </td>
+	</tr>
+</table>
+<h2>More vi cheatsheets</h2>
+<p>http://www.washington.edu/computing/unix/viqr.html</p>
+<p>http://www.lagmonster.org/docs/vi.html</p>
+<h2>add to .screenrc to get Color Schemes working</h2>
+<div>
+<pre><code class='Vim'>attrcolor b &amp;quot;.I&amp;quot;
+<p>termcapinfo xterm &#8216;Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm&#8217;<br />
+defbce &quot;on&quot;<br />
+term screen-256color-bce</code></pre></p>
+</div>
+<h2>.vimrc</h2>
+<div>
+<pre><code class='Vim'>&amp;quot; Colors!!
+<p>set t_Co=256</p>
+<p>&quot; color theme<br />
+&quot; colors zenburn<br />
+colors calmar256-dark</p>
+<p>set showmode &quot;show current mode down the bottom</p>
+<p>&quot;Setting the status line&#8230;</p>
+<p>set statusline=%f       &quot;tail of the filename</p>
+<p>&quot;display a warning if the file format isn&#8217;t Unix<br />
+set statusline+=%#warningmsg#<br />
+set statusline+=%{&amp;ff!=&#8216;unix&#8217;?&#8216;[&#8217;.&amp;ff.&#8216;]&#8217;:&#8217;&#8217;}<br />
+set statusline+=%*</p>
+<p>&quot;display a warning if file encoding isn&#8217;t UTf-8<br />
+set statusline+=%#warningmsg#<br />
+set statusline+=%{(&amp;fenc<img src="&#39;utf-8&#39;&amp;amp;&amp;amp;&amp;amp;fenc" alt="" />=&#8216;&#8217;)?&#8217;[&#8216;.&amp;fenc.&#8217;]&#8216;:&#8217;&#8217;}<br />
+set statusline+=%*</p>
+<p>set statusline+=%h      &quot;help file flag<br />
+set statusline+=%y      &quot;filetype<br />
+set statusline+=%r      &quot;read only flag<br />
+set statusline+=%m      &quot;modified flag<br />
+syntax on</code></pre></p>
+</div>
+<h2>Window Commands</h2>
+<table>
+	<tr>
+		<td> C-w s </td>
+		<td> Split window horizontally    </td>
+	</tr>
+	<tr>
+		<td> C-w v </td>
+		<td> Split window vertically      </td>
+	</tr>
+	<tr>
+		<td> C-w x </td>
+		<td> Exchange windows             </td>
+	</tr>
+	<tr>
+		<td> C-w w </td>
+		<td> jump to next window          </td>
+	</tr>
+	<tr>
+		<td> :only </td>
+		<td> kill all windows but current </td>
+	</tr>
+	<tr>
+		<td> C-w = </td>
+		<td> equalize all window sizes    </td>
+	</tr>
+</table>
+<h2>Edit Keys: used with argument</h2>
+<h3>c change</h3>
+<ul>
+	<li>cw = change word</li>
+</ul>
+<h3>d delete</h3>
+<ul>
+	<li>d$ delete til end of line</li>
+</ul>
+<h3>r replace</h3>
+<ul>
+	<li>r5 replace 5 chars</li>
+</ul>
+<h3>y yank</h3>
+<ul>
+	<li>yy yank entire line</li>
+</ul>
