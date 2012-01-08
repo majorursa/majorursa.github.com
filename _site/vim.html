@@ -6,7 +6,7 @@
 
 	<link rel="stylesheet" href="/bootstrap.min.css">
 	<link rel="stylesheet" href="/css.css">
-	<link rel="stylesheet" href="/css/pygments.css">
+	<link rel="stylesheet" href="/css/inkpot.css">
 </head>
 <body>
 
@@ -30,8 +30,7 @@
 		</div>
 		<div class="post_content">
 			
-			<h1>Vim</h1>
-<p><img src="http://majorursa.net/hide_vi.jpg" alt="" /></p>
+			<p><img src="http://majorursa.net/hide_vi.jpg" alt="" /></p>
 <h2>Vi Commands</h2>
 <table>
 	<tr>
@@ -142,34 +141,34 @@ defbce <span class="c">&quot;on&quot;</span>
 </code></pre>
 </div>
 <h2>.vimrc</h2>
-<div class="highlight"><pre><code class="vim"><span class="c">&quot; Colors!!</span>
-<span class="k">set</span> <span class="nb">t_Co</span><span class="p">=</span><span class="m">256</span>
-
-<span class="c">&quot; color theme</span>
-<span class="c">&quot; colors zenburn</span>
-<span class="k">colors</span> calmar256<span class="p">-</span><span class="nb">dark</span>
-
-<span class="k">set</span> <span class="nb">showmode</span> <span class="c">&quot;show current mode down the bottom</span>
-
-<span class="c">&quot;Setting the status line...</span>
-
-<span class="k">set</span> <span class="nb">statusline</span><span class="p">=</span>%<span class="k">f</span>       <span class="c">&quot;tail of the filename</span>
-
-<span class="c">&quot;display a warning if the file format isn&#39;t Unix</span>
-<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%#warningmsg#
-<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%{&amp;<span class="nb">ff</span><span class="p">!=</span><span class="s1">&#39;unix&#39;</span>?<span class="s1">&#39;[&#39;</span>.&amp;<span class="nb">ff</span>.<span class="s1">&#39;]&#39;</span>:<span class="s1">&#39;&#39;</span>}
-<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%*
-
-<span class="c">&quot;display a warning if file encoding isn&#39;t UTf-8</span>
-<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%#warningmsg#
-<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%{<span class="p">(</span>&amp;<span class="nb">fenc</span><span class="p">!=</span><span class="s1">&#39;utf-8&#39;</span>&amp;&amp;&amp;<span class="nb">fenc</span><span class="p">!=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>?<span class="s1">&#39;[&#39;</span>.&amp;<span class="nb">fenc</span>.<span class="s1">&#39;]&#39;</span>:<span class="s1">&#39;&#39;</span>}
-<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%*
-
-<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%<span class="k">h</span>      <span class="c">&quot;help file flag</span>
-<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%<span class="k">y</span>      <span class="c">&quot;filetype</span>
-<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%<span class="k">r</span>      <span class="c">&quot;read only flag</span>
-<span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%<span class="k">m</span>      <span class="c">&quot;modified flag</span>
-<span class="nb">syntax</span> <span class="k">on</span>
+<div class="highlight"><pre><code class="vim"><span class="lineno"> 1</span> <span class="c">&quot; Colors!!</span>
+<span class="lineno"> 2</span> <span class="k">set</span> <span class="nb">t_Co</span><span class="p">=</span><span class="m">256</span>
+<span class="lineno"> 3</span> 
+<span class="lineno"> 4</span> <span class="c">&quot; color theme</span>
+<span class="lineno"> 5</span> <span class="c">&quot; colors zenburn</span>
+<span class="lineno"> 6</span> <span class="k">colors</span> calmar256<span class="p">-</span><span class="nb">dark</span>
+<span class="lineno"> 7</span> 
+<span class="lineno"> 8</span> <span class="k">set</span> <span class="nb">showmode</span> <span class="c">&quot;show current mode down the bottom</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span> <span class="c">&quot;Setting the status line...</span>
+<span class="lineno">11</span> 
+<span class="lineno">12</span> <span class="k">set</span> <span class="nb">statusline</span><span class="p">=</span>%<span class="k">f</span>       <span class="c">&quot;tail of the filename</span>
+<span class="lineno">13</span> 
+<span class="lineno">14</span> <span class="c">&quot;display a warning if the file format isn&#39;t Unix</span>
+<span class="lineno">15</span> <span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%#warningmsg#
+<span class="lineno">16</span> <span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%{&amp;<span class="nb">ff</span><span class="p">!=</span><span class="s1">&#39;unix&#39;</span>?<span class="s1">&#39;[&#39;</span>.&amp;<span class="nb">ff</span>.<span class="s1">&#39;]&#39;</span>:<span class="s1">&#39;&#39;</span>}
+<span class="lineno">17</span> <span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%*
+<span class="lineno">18</span> 
+<span class="lineno">19</span> <span class="c">&quot;display a warning if file encoding isn&#39;t UTf-8</span>
+<span class="lineno">20</span> <span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%#warningmsg#
+<span class="lineno">21</span> <span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%{<span class="p">(</span>&amp;<span class="nb">fenc</span><span class="p">!=</span><span class="s1">&#39;utf-8&#39;</span>&amp;&amp;&amp;<span class="nb">fenc</span><span class="p">!=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>?<span class="s1">&#39;[&#39;</span>.&amp;<span class="nb">fenc</span>.<span class="s1">&#39;]&#39;</span>:<span class="s1">&#39;&#39;</span>}
+<span class="lineno">22</span> <span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%*
+<span class="lineno">23</span> 
+<span class="lineno">24</span> <span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%<span class="k">h</span>      <span class="c">&quot;help file flag</span>
+<span class="lineno">25</span> <span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%<span class="k">y</span>      <span class="c">&quot;filetype</span>
+<span class="lineno">26</span> <span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%<span class="k">r</span>      <span class="c">&quot;read only flag</span>
+<span class="lineno">27</span> <span class="k">set</span> <span class="nb">statusline</span><span class="p">+=</span>%<span class="k">m</span>      <span class="c">&quot;modified flag</span>
+<span class="lineno">28</span> <span class="nb">syntax</span> <span class="k">on</span>
 </code></pre>
 </div>
 <h2>Window Commands</h2>

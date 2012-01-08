@@ -4,8 +4,6 @@ category: Vim
 layout: default
 ---
 
-h1. Vim
-
 !http://majorursa.net/hide_vi.jpg!
 
 h2. Vi Commands
@@ -53,7 +51,7 @@ term screen-256color-bce
 
 h2. .vimrc
 
-{% highlight vim %}
+{% highlight vim linenos %}
 " Colors!!
 set t_Co=256
 
