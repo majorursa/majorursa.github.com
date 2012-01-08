@@ -1,4 +1,4 @@
-.highlight  { background: #242424; color: #f6f3e8}
+.highlight  { background: #242424 !important; color: #f6f3e8}
 .highlight .hll { background-color: #ffffcc }
 .highlight .c { color: #99968b; font-style: italic} /* Comment */
 .highlight .err { color: #f6f3e8} /* Error */
