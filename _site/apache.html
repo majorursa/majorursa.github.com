@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Apache Notes - Major Ursa</title>
+
+	<link rel="stylesheet" href="/bootstrap.min.css">
+	<link rel="stylesheet" href="/css.css">
+	<link rel="stylesheet" href="/css/inkpot.css">
+</head>
+<body>
+
+	
+		
+		
+
+	<header>
+  <div class=row>
+	  <div class="span7 offset3" id=header><h1><a href="/">Major Ursa</a><img src=/mu-logo.png></h1></span>
+  </div>
+	</header>
+
+	<div class="container">
+
+
+  
+    <div class="span11 content">
+		<div class="page-header">
+		 <h3 class="title">Apache Notes</h3>
+		</div>
+		<div class="post_content">
+			
+			<h2>Restart Apache2</h2>
+<div class="highlight"><pre><code class="apache"><span class="lineno">1</span> <span class="nb">sudo</span> apache2ctl graceful
+</code></pre>
+</div>
+<h2>Continuously Monitor Apache Error Log</h2>
+<div class="highlight"><pre><code class="apache"><span class="lineno">1</span> <span class="nb">sudo</span> tail -f <span class="sx">/var/log/apache2/error.log</span>
+</code></pre>
+</div>
+<h2>Apache Configuration</h2>
+<h3>Add a new VirtualHost to the Apache Config file</h3>
+<div class="highlight"><pre><code class="apache"><span class="lineno">1</span> <span class="nb">sudo</span> vi <span class="sx">/etc/apache2/sites-available/default</span>
+</code></pre>
+</div>
+<h3>A simple VirtualHost entry</h3>
+<div class="highlight"><pre><code class="apache"><span class="lineno">1</span> <span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>  
+<span class="lineno">2</span>   <span class="nb">ServerName</span> majorursa.net
+<span class="lineno">3</span>   <span class="nb">ServerAlias</span> www.majorursa.net
+<span class="lineno">4</span>   <span class="nb">DocumentRoot</span> <span class="sx">/var/www/majorursalia/</span>
+<span class="lineno">5</span> <span class="nt">&lt;/VirtualHost&gt;</span>   
+</code></pre>
+</div>
+<h3>A VirtualHost for a Drupal Site</h3>
+<div class="highlight"><pre><code class="apache"><span class="lineno"> 1</span> <span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>  
+<span class="lineno"> 2</span>   <span class="nb">ServerName</span> majorursa.net
+<span class="lineno"> 3</span>   <span class="nb">ServerAlias</span> www.majorursa.net
+<span class="lineno"> 4</span>   <span class="nb">DocumentRoot</span> <span class="sx">/var/www/majorursalia/drupal-6.22</span>
+<span class="lineno"> 5</span>   <span class="nt">&lt;Directory</span> <span class="s">/var/www/majorursalia/drupal-6.22/</span><span class="nt">&gt;</span>
+<span class="lineno"> 6</span>     <span class="nb">AllowOverride</span> <span class="k">All</span>
+<span class="lineno"> 7</span>     <span class="nb">Options</span> <span class="k">None</span>
+<span class="lineno"> 8</span>     <span class="nb">Order</span> allow,deny
+<span class="lineno"> 9</span>     <span class="nb">Allow</span> from <span class="k">all</span>
+<span class="lineno">10</span>   <span class="nt">&lt;/Directory&gt;</span> 
+<span class="lineno">11</span> <span class="nt">&lt;/VirtualHost&gt;</span>   
+</code></pre>
+</div>
+<h2>Phusion Passenger</h2>
+<p>Do <span class="caps">NOT</span> start phusion passenger on a whim, forget about it and leave it Running!<br />
++ Memory Hog!</p>
+			
+		</div>
+    </div><!--content-->
+
+	<div class="span5 sidebar">
+		<h4>Published on </h4>
+		
+	</div>
+
+	</div><!--container-->
+
+</body>
+</html>
+

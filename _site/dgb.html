@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Drush Git Backup - Major Ursa</title>
+
+	<link rel="stylesheet" href="/bootstrap.min.css">
+	<link rel="stylesheet" href="/css.css">
+	<link rel="stylesheet" href="/css/inkpot.css">
+</head>
+<body>
+
+	
+		
+		
+
+	<header>
+  <div class=row>
+	  <div class="span7 offset3" id=header><h1><a href="/">Major Ursa</a><img src=/mu-logo.png></h1></span>
+  </div>
+	</header>
+
+	<div class="container">
+
+
+  
+    <div class="span11 content">
+		<div class="page-header">
+		 <h3 class="title">Drush Git Backup</h3>
+		</div>
+		<div class="post_content">
+			
+			<p>+ <a href="https://github.com/scor/dgb"><span class="caps">DGB</span> at Github</a></p>
+<h2>What is Drush Git Backup?</h2>
+<p>Drush Git Backup is a series of drush commands that help automate git<br />
+backups of a drupal site and also mysql dumps of the database.</p>
+<h3><span class="caps">DGB</span> Instance</h3>
+<p>To use <span class="caps">DGB</span>, you create a <span class="caps">DGB</span> instance for your site.  This is instance<br />
+is located in the directory above your DRUPAL_ROOT it contains a git<br />
+repository of your drupal site files and also a mysql dump of your database.</p>
+<h2>What is in <span class="caps">DGB</span> Archive</h2>
+<p>The <span class="caps">DGB</span> instance directory is the directory up from your DRUPAL_ROOT.</p>
+<h3>each site&#8217;s db dump is in databases/<site-name>.sql</h3>
+<p>Database dump for default is in databases/default.sql</p>
+<h3>There is a Git repository of your site&#8217;s files</h3>
+<p><div class="highlight"><pre><code class="bash"><span class="lineno">1</span> <span class="c"># from DRUPAL_ROOT cd up into the DGB instance directory</span>
+<span class="lineno">2</span> <span class="nb">cd</span> ..
+<span class="lineno">3</span> <span class="c"># see list of git commits</span>
+<span class="lineno">4</span> git log
+<span class="lineno">5</span> <span class="c"># see what files have changed since last call to drush dgb-backup</span>
+<span class="lineno">6</span> git status
+</code><div class="highlight"><pre><code class="bash">&lt;span class="lineno"&gt;1&lt;/span&gt; &lt;span class="c"&gt;# from DRUPAL_ROOT cd up into the DGB instance directory&lt;/span&gt;
+&lt;span class="lineno"&gt;2&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; ..
+&lt;span class="lineno"&gt;3&lt;/span&gt; &lt;span class="c"&gt;# see list of git commits&lt;/span&gt;
+&lt;span class="lineno"&gt;4&lt;/span&gt; git log
+&lt;span class="lineno"&gt;5&lt;/span&gt; &lt;span class="c"&gt;# see what files have changed since last call to drush dgb-backup&lt;/span&gt;
+&lt;span class="lineno"&gt;6&lt;/span&gt; git status
+</code></pre></p>
+</div>
+<p></notextile></p>
+<p>http://majorursa.net/dgb-dir.png</p>
+<h2>Install <span class="caps">DGB</span></h2>
+<div class="highlight"><pre><code class="bash"><span class="lineno">1</span> <span class="nb">cd</span> &lt;drush directory&gt;/commands/
+<span class="lineno">2</span> git clone https://github.com/scor/dgb.git
+</code></pre>
+</div>
+<h2>Setup <span class="caps">DGB</span> for a site</h2>
+<div class="highlight"><pre><code class="bash"><span class="lineno">1</span> <span class="c"># from DRUPAL_ROOT </span>
+<span class="lineno">2</span> <span class="c"># cd up one directory</span>
+<span class="lineno">3</span> <span class="nb">cd</span> ..
+<span class="lineno">4</span> <span class="c"># create directory for backed up database</span>
+<span class="lineno">5</span> mkdir databases
+<span class="lineno">6</span> <span class="c"># initialize a git repository</span>
+<span class="lineno">7</span> git init
+</code></pre>
+</div>
+<h2>Back up Site</h2>
+<div class="highlight"><pre><code class="bash"><span class="lineno">1</span> <span class="nb">cd</span> &lt;DRUPAL_ROOT&gt;
+<span class="lineno">2</span> drush dgb-backup
+</code></pre>
+</div>
+<h2>Clone the Site for development</h2>
+<div class="highlight"><pre><code class="bash"><span class="lineno"> 1</span> <span class="c"># from DRUPAL_ROOT</span>
+<span class="lineno"> 2</span> <span class="nb">cd</span> ../..
+<span class="lineno"> 3</span> git clone &lt;path to dgb instance&gt; &lt;dev-dgb-instance&gt;
+<span class="lineno"> 4</span> <span class="nb">cd</span> &lt;dev-dgb-instance&gt;
+<span class="lineno"> 5</span> <span class="c"># create a new branch called &quot;my-dev-branch&quot;</span>
+<span class="lineno"> 6</span> git branch my-dev-branch
+<span class="lineno"> 7</span> <span class="c"># checkout the new dev branch</span>
+<span class="lineno"> 8</span> git checkout my-dev-branch
+<span class="lineno"> 9</span> <span class="c"># now create a new database with the database dump</span>
+<span class="lineno">10</span> <span class="c"># change &lt;dbuser&gt;, &lt;dbpasswd&gt;, &lt;devdbname&gt; and &lt;path-to-dgb-instance&gt;</span>
+<span class="lineno">11</span> <span class="c"># and also the substitute default.sql for the name of your databasedump</span>
+<span class="lineno">12</span> mysql -u &lt;dbuser&gt; -p &lt;dbpasswd&gt; &lt;devdbname&gt; &lt; databases/default.sql
+<span class="lineno">13</span> <span class="c"># now finally update settings.php to point to your dev database</span>
+<span class="lineno">14</span> vim sites/default/settings.php
+<span class="lineno">15</span> <span class="c"># finally check that there is an .htaccess file in your new dev</span>
+<span class="lineno">16</span> <span class="c"># &lt;DRUPAL_ROOT&gt; if not, copy it over from the cloned siteF</span>
+</code></pre>
+</div>
+			
+		</div>
+    </div><!--content-->
+
+	<div class="span5 sidebar">
+		<h4>Published on </h4>
+		
+	</div>
+
+	</div><!--container-->
+
+</body>
+</html>
+

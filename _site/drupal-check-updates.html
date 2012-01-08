@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Drush check_updates.rb - Major Ursa</title>
+
+	<link rel="stylesheet" href="/bootstrap.min.css">
+	<link rel="stylesheet" href="/css.css">
+	<link rel="stylesheet" href="/css/inkpot.css">
+</head>
+<body>
+
+	
+		
+		
+
+	<header>
+  <div class=row>
+	  <div class="span7 offset3" id=header><h1><a href="/">Major Ursa</a><img src=/mu-logo.png></h1></span>
+  </div>
+	</header>
+
+	<div class="container">
+
+
+  
+    <div class="span11 content">
+		<div class="page-header">
+		 <h3 class="title">Drush check_updates.rb</h3>
+		</div>
+		<div class="post_content">
+			
+			<h3>Ruby Script to Check which Drupal Sites have Security Updates Available</h3>
+<ul>
+	<li>Script calls drush site-alias to get list of sites on server</li>
+	<li>loops through sites, checking each with drush pm-update &#8212;security-only<br />
+<div class="highlight"><pre><code class="ruby"><span class="lineno"> 1</span>  
+<span class="lineno"> 2</span> <span class="c1">#!/usr/bin/env ruby</span>
+<span class="lineno"> 3</span> <span class="n">reply</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="lineno"> 4</span> <span class="c1"># grab a list of site aliases</span>
+<span class="lineno"> 5</span> <span class="n">sites</span> <span class="o">=</span> <span class="sx">%x{ /usr/local/bin/drush site-alias }</span>
+<span class="lineno"> 6</span> <span class="c1"># loop thru them checking for updates</span>
+<span class="lineno"> 7</span> <span class="n">sites</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">s</span><span class="o">|</span>
+<span class="lineno"> 8</span>   <span class="c1"># commented out line checks if any updates available</span>
+<span class="lineno"> 9</span>   <span class="c1"># answer = %x{ /usr/local/bin/drush #{s.chomp} pm-update --pipe}</span>
+<span class="lineno">10</span>   <span class="c1"># check for security updates only</span>
+<span class="lineno">11</span>   <span class="n">answer</span> <span class="o">=</span> <span class="sx">%x{ /usr/local/bin/drush </span><span class="si">#{</span><span class="n">s</span><span class="o">.</span><span class="n">chomp</span><span class="si">}</span><span class="sx"> pm-update --pipe --security-only}</span>
+<span class="lineno">12</span>   <span class="k">if</span> <span class="n">answer</span><span class="o">.</span><span class="n">chomp</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span> <span class="k">then</span>
+<span class="lineno">13</span>       <span class="n">reply</span> <span class="o">=</span> <span class="n">reply</span> <span class="o">+</span> <span class="s2">&quot;checking </span><span class="si">#{</span><span class="n">s</span><span class="o">.</span><span class="n">chomp</span><span class="si">}</span><span class="s2"> for security updates</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="lineno">14</span>       <span class="n">reply</span> <span class="o">=</span> <span class="n">reply</span> <span class="o">+</span> <span class="n">answer</span>
+<span class="lineno">15</span>   <span class="k">end</span>
+<span class="lineno">16</span> <span class="k">end</span>
+<span class="lineno">17</span> <span class="k">if</span> <span class="n">reply</span><span class="o">.</span><span class="n">chomp</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span> <span class="k">then</span>
+<span class="lineno">18</span>   <span class="nb">puts</span> <span class="n">reply</span>
+<span class="lineno">19</span> <span class="k">end</span>
+</code></pre>
+</div>
+</li>
+</ul>
+<h2>Example output</h2>
+<div class="highlight"><pre><code class="bash"><span class="lineno">1</span> <span class="nv">$ </span>check-updates.rb
+<span class="lineno">2</span> 
+<span class="lineno">3</span> checking @devp <span class="k">for </span>security updates
+<span class="lineno">4</span> views 7.x-3.0-rc1 7.x-3.0-rc3 SECURITY-UPDATE-available
+</code></pre>
+</div>
+			
+		</div>
+    </div><!--content-->
+
+	<div class="span5 sidebar">
+		<h4>Published on </h4>
+		
+	</div>
+
+	</div><!--container-->
+
+</body>
+</html>
+

@@ -1,0 +1,92 @@
+---
+title: Drush Git Backup
+category: drupal
+layout: default
+---
+
++ "DGB at Github":https://github.com/scor/dgb
+
+h2. What is Drush Git Backup?
+
+Drush Git Backup is a series of drush commands that help automate git
+backups of a drupal site and also mysql dumps of the database.
+
+h3. DGB Instance
+
+To use DGB, you create a DGB instance for your site.  This is instance
+is located in the directory above your DRUPAL_ROOT it contains a git
+repository of your drupal site files and also a mysql dump of your database.
+
+
+
+h2. What is in DGB Archive
+
+The DGB instance directory is the directory up from your DRUPAL_ROOT. 
+
+h3. each site's db dump is in databases/<site-name>.sql 
+
+Database dump for default is in databases/default.sql
+
+h3. There is a Git repository of your site's files
+
+{% highlight bash linenos %}
+# from DRUPAL_ROOT cd up into the DGB instance directory
+cd ..
+# see list of git commits
+git log
+# see what files have changed since last call to drush dgb-backup
+git status
+{% endhighlight %} 
+
+http://majorursa.net/dgb-dir.png
+
+
+h2. Install DGB
+
+{% highlight bash linenos %}
+cd <drush directory>/commands/
+git clone https://github.com/scor/dgb.git
+{% endhighlight %}
+
+
+h2. Setup DGB for a site
+
+{% highlight bash linenos %}
+# from DRUPAL_ROOT 
+# cd up one directory
+cd ..
+# create directory for backed up database
+mkdir databases
+# initialize a git repository
+git init
+{% endhighlight %}
+
+h2. Back up Site
+
+{% highlight bash linenos %}
+cd <DRUPAL_ROOT>
+drush dgb-backup
+{% endhighlight %}
+
+
+
+h2. Clone the Site for development
+
+{% highlight bash linenos %}
+# from DRUPAL_ROOT
+cd ../..
+git clone <path to dgb instance> <dev-dgb-instance>
+cd <dev-dgb-instance>
+# create a new branch called "my-dev-branch"
+git branch my-dev-branch
+# checkout the new dev branch
+git checkout my-dev-branch
+# now create a new database with the database dump
+# change <dbuser>, <dbpasswd>, <devdbname> and <path-to-dgb-instance>
+# and also the substitute default.sql for the name of your databasedump
+mysql -u <dbuser> -p <dbpasswd> <devdbname> < databases/default.sql
+# now finally update settings.php to point to your dev database
+vim sites/default/settings.php
+# finally check that there is an .htaccess file in your new dev
+# <DRUPAL_ROOT> if not, copy it over from the cloned siteF
+{% endhighlight %}
